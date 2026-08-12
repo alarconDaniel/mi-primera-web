@@ -17,7 +17,7 @@ La aplicación se encuentra desplegada y accesible públicamente a través de **
 
 Captura de pantalla de la página desplegada correctamente desde la nube:
 
-![Evidencia de Despliegue](./web-desplegada.png)
+![Evidencia de Despliegue](./web-desplegada2.png)
 
 ---
 
