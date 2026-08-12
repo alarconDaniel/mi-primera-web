@@ -25,5 +25,5 @@ Captura de pantalla de la página desplegada correctamente desde la nube:
 
 * **Frontend:** HTML5, CSS3
 * **Backend & Lenguajes:** Node.js, NestJS, JavaScript, TypeScript
-* **Control de Versiones:** Git & GitHub[span_5](start_span)[span_5](end_span)
-* **Hosting / Cloud:** Vercel[span_6](start_span)[span_6](end_span)
+* **Control de Versiones:** Git & GitHub
+* **Hosting / Cloud:** Vercel
