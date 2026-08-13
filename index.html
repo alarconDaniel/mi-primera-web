@@ -1,311 +1,799 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoja de Vida Web - Daniel Esteban Alarcón Rojas</title>
-  
-  <!-- Tipografía moderna (Plus Jakarta Sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Íconos de FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <style>
-    :root {
-      --bg-color: #0f172a;
-      --card-bg: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --primary: #6366f1;
-      --primary-hover: #818cf8;
-      --accent: #06b6d4;
-      --border-color: #334155;
-      --radius: 16px;
-      --transition: all 0.3s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Esteban Alarcón Rojas | Desarrollador Full-Stack</title>
+    <meta name="description" content="Hoja de vida interactiva de Daniel Esteban Alarcón Rojas, estudiante de Ingeniería de Sistemas y desarrollador Full-Stack con experiencia en React Native, NestJS, Python y arquitecturas en la nube.">
+    
+    <!-- Fuentes modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Paleta de colores Premium Oscura */
+            --bg-base: #030712;
+            --bg-surface: rgba(17, 24, 39, 0.7);
+            --bg-surface-hover: rgba(31, 41, 55, 0.8);
+            --border-color: rgba(75, 85, 99, 0.4);
+            --border-highlight: rgba(99, 102, 241, 0.5);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            
+            /* Colores de Acento */
+            --accent-primary: #6366f1; /* Indigo */
+            --accent-secondary: #06b6d4; /* Cyan */
+            --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            --glow-color: rgba(99, 102, 241, 0.2);
+            
+            /* Dimensiones y Transiciones */
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 2rem 1rem;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Fondo sutil texturizado */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
 
-    .container {
-      max-width: 850px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
 
-    /* Encabezado Principal */
-    header {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
+        /* Luces ambientales animadas de fondo */
+        .ambient-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        .glow-1 { top: -20%; left: -10%; background: radial-gradient(circle, var(--accent-primary), transparent 70%); }
+        .glow-2 { bottom: -20%; right: -10%; background: radial-gradient(circle, var(--accent-secondary), transparent 70%); animation-delay: -10s; }
 
-    .profile-badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      color: var(--primary-hover);
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
+        }
 
-    h1 {
-      font-size: 2.3rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #ffffff, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
+        /* Layout Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2.5rem;
+        }
 
-    .subtitle {
-      font-size: 1.15rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
 
-    .details {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            transition: var(--transition-normal);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Rejilla de Contenido */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+        /* Borde superior luminoso en hover */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
 
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 2rem;
-      transition: var(--transition);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 20px 40px -15px var(--glow-color);
+            background: var(--bg-surface-hover);
+        }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
-    }
+        .glass-card:hover::before {
+            opacity: 1;
+        }
 
-    .card-full {
-      grid-column: 1 / -1;
-    }
+        /* Sidebar Izquierda (Perfil) */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
 
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--text-main);
-    }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
 
-    h2 i {
-      color: var(--primary-hover);
-    }
+        .profile-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .about-text {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
+        .profile-title {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
 
-    /* Badges de Habilidades */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-    .skill-tag {
-      background: #0f172a;
-      border: 1px solid var(--border-color);
-      padding: 0.55rem 1rem;
-      border-radius: 12px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: var(--transition);
-    }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
 
-    .skill-tag:hover {
-      border-color: var(--accent);
-      background: rgba(6, 182, 212, 0.1);
-      color: var(--accent);
-    }
+        .contact-item i {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--accent-secondary);
+            font-size: 1.1rem;
+            transition: var(--transition-normal);
+        }
 
-    .skill-tag i {
-      color: var(--accent);
-    }
+        .contact-item:hover {
+            color: var(--text-primary);
+        }
 
-    /* Botones de Enlaces */
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+        .contact-item:hover i {
+            background: var(--accent-gradient);
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
 
-    .btn {
-      flex: 1;
-      min-width: 160px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      padding: 0.85rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 0.95rem;
-    }
+        /* Botones */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
 
-    .btn-github {
-      background: #1e293b;
-      color: #fff;
-      border: 1px solid var(--border-color);
-    }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            transition: var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-decoration: none;
+        }
 
-    .btn-github:hover {
-      background: #334155;
-      border-color: #64748b;
-      transform: translateY(-2px);
-    }
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
 
-    .btn-linkedin {
-      background: #0077b5;
-      color: #fff;
-      border: 1px solid #005582;
-    }
+        .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+            transform: translateY(-3px);
+        }
 
-    .btn-linkedin:hover {
-      background: #005a87;
-      transform: translateY(-2px);
-    }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
 
-    /* Pie de página */
-    footer {
-      text-align: center;
-      padding: 1rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-primary);
+            transform: translateY(-3px);
+        }
 
-    footer i {
-      color: #ef4444;
-    }
+        /* Contenido Principal */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      header { padding: 2rem 1.5rem; }
-      .social-links { flex-direction: column; }
-    }
-  </style>
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .section-title i {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
+        }
+
+        .text-block {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .text-block strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Línea de Tiempo (Experiencia y Educación) */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            position: relative;
+        }
+
+        /* Línea vertical */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-primary), transparent);
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        /* Punto de la línea de tiempo */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 6px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            border: 2px solid var(--accent-primary);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            transition: var(--transition-normal);
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent-primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .item-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-secondary);
+            font-weight: 500;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .item-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .item-content {
+            margin-top: 1rem;
+        }
+
+        .item-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .item-list li {
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .item-list li strong {
+            color: var(--text-primary);
+        }
+
+        .item-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* Tags de Habilidades */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-normal);
+            cursor: default;
+        }
+
+        .skill-tag i {
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-secondary);
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.2);
+        }
+        
+        .skill-tag:hover i {
+            color: var(--accent-secondary);
+        }
+
+        /* Animaciones de Entrada (Scroll Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Para impresión */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .ambient-glow, .btn-group {
+                display: none;
+            }
+            .glass-card {
+                background: none;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                margin-bottom: 2rem;
+            }
+            .container {
+                display: block;
+                padding: 0;
+            }
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            .timeline::before {
+                background: #ccc;
+            }
+            .timeline-item::before {
+                border-color: #333;
+                background: white;
+                box-shadow: none;
+            }
+            .text-secondary, .item-list li, .text-block {
+                color: #333;
+            }
+            .skill-tag {
+                border-color: #ccc;
+                color: #000;
+            }
+            .section-title i, .profile-name {
+                -webkit-text-fill-color: black;
+                background: none;
+                color: black;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <span class="profile-badge"><i class="fa-solid fa-cloud"></i> Cloud Computing</span>
-      <h1>Daniel Esteban Alarcón Rojas</h1>
-      <p class="subtitle">Estudiante de Ingeniería de Sistemas</p>
-      <p class="details">8.º Semestre · Electiva Cloud Computing</p>
-    </header>
+    <!-- Luces ambientales de fondo -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
 
-    <!-- Main Content -->
-    <main class="grid">
-      <!-- Sobre mí -->
-      <section class="card card-full">
-        <h2><i class="fa-solid fa-user"></i> Sobre mí</h2>
-        <p class="about-text">
-          Apasionado por el desarrollo de software Backend, arquitectura de sistemas escalables y despliegue de aplicaciones en la nube. Orientado a crear soluciones eficientes aplicando buenas prácticas de programación.
-        </p>
-      </section>
+    <div class="container">
+        <!-- Sidebar (Información de Perfil y Contacto) -->
+        <aside class="sidebar reveal">
+            <div class="glass-card">
+                <div class="profile-header">
+                    <h1 class="profile-name">Daniel Esteban Alarcón Rojas</h1>
+                    <div class="profile-title">Desarrollador Full-Stack / Ing. de Sistemas</div>
+                </div>
+                
+                <ul class="contact-list">
+                    <li>
+                        <a href="mailto:alarcon.daniel.e@gmail.com" class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>alarcon.daniel.e@gmail.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:daniel.alarcon@usantoto.edu.co" class="contact-item">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>daniel.alarcon@usantoto.edu.co</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+573197541970" class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+57 319 754 1970</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Tunja, Boyacá, Colombia</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/daniel-esteban-alarcón-rojas-053950322" target="_blank" class="contact-item">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/alarconDaniel" target="_blank" class="contact-item">
+                            <i class="fa-brands fa-github"></i>
+                            <span>github.com/alarconDaniel</span>
+                        </a>
+                    </li>
+                </ul>
 
-      <!-- Habilidades Tecnológicas -->
-      <section class="card card-full">
-        <h2><i class="fa-solid fa-code"></i> Habilidades & Tecnologías</h2>
-        <div class="skills-container">
-          <span class="skill-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
-          <span class="skill-tag"><i class="fa-solid fa-cubes"></i> NestJS</span>
-          <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript / TypeScript</span>
-          <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
-          <span class="skill-tag"><i class="fa-solid fa-database"></i> Bases de Datos (SQL / NoSQL)</span>
-          <span class="skill-tag"><i class="fa-brands fa-github"></i> Git & GitHub</span>
-          <span class="skill-tag"><i class="fa-solid fa-network-wired"></i> REST APIs</span>
-          <span class="skill-tag"><i class="fa-solid fa-cloud"></i> Cloud Computing</span>
-        </div>
-      </section>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="window.print()">
+                        <i class="fa-solid fa-download"></i> Descargar CV
+                    </button>
+                    <a href="https://github.com/alarconDaniel" target="_blank" class="btn btn-secondary">
+                        <i class="fa-brands fa-github-alt"></i> Ver Portafolio
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Tarjeta de Habilidades Resumidas -->
+            <div class="glass-card reveal" style="transition-delay: 0.1s;">
+                <h3 class="section-title" style="font-size: 1.3rem; margin-bottom: 1.2rem;"><i class="fa-solid fa-code"></i> Habilidades Técnicas</h3>
+                <div class="skills-grid">
+                    <span class="skill-tag"><i class="fa-brands fa-react"></i> React / Native</span>
+                    <span class="skill-tag"><i class="fa-brands fa-node-js"></i> Node.js / NestJS</span>
+                    <span class="skill-tag"><i class="fa-brands fa-java"></i> Java / Spring Boot</span>
+                    <span class="skill-tag"><i class="fa-brands fa-python"></i> Python</span>
+                    <span class="skill-tag"><i class="fa-brands fa-js"></i> TypeScript</span>
+                    <span class="skill-tag"><i class="fa-solid fa-database"></i> PostgreSQL / MySQL</span>
+                    <span class="skill-tag"><i class="fa-brands fa-docker"></i> Docker</span>
+                    <span class="skill-tag"><i class="fa-solid fa-cloud"></i> Azure / Supabase</span>
+                    <span class="skill-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+                </div>
+            </div>
+        </aside>
 
-      <!-- Enlaces y Contacto -->
-      <section class="card card-full">
-        <h2><i class="fa-solid fa-link"></i> Mis Perfiles</h2>
-        <div class="social-links">
-          <a href="https://github.com/alarconDaniel" target="_blank" rel="noopener noreferrer" class="btn btn-github">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a href="https://co.linkedin.com/in/daniel-esteban-alarc%C3%B3n-rojas-053950322" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-        </div>
-      </section>
-    </main>
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            
+            <!-- Perfil Profesional -->
+            <section class="glass-card reveal">
+                <h2 class="section-title"><i class="fa-solid fa-user-astronaut"></i> Perfil Profesional</h2>
+                <p class="text-block">
+                    Estudiante de octavo semestre de Ingeniería de Sistemas en la Universidad Santo Tomás, Seccional Tunja, con el <strong>mejor promedio académico de la seccional</strong> durante dos semestres consecutivos (2023-2 y 2024-2). Cuento con experiencia práctica en <strong>desarrollo de software full-stack</strong> (React Native, NestJS) mediante proyectos de hackathon, e investigación aplicada en la enseñanza de la ingeniería a través de la gamificación, con ponencias y pósters presentados en congresos científicos. Poseo nivel de inglés B1 y bases sólidas en Python, Java, Git, Docker y bases de datos SQL. Orientado a crear soluciones eficientes y escalables.
+                </p>
+            </section>
 
-    <!-- Footer -->
-    <footer>
-      <p><i class="fa-solid fa-globe"></i> Página web desplegada en la nube con Vercel</p>
-    </footer>
-  </div>
+            <!-- Experiencia y Proyectos -->
+            <section class="glass-card reveal">
+                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia y Proyectos</h2>
+                
+                <div class="timeline">
+                    <!-- Proyecto 1 -->
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <h3 class="item-title">Latinoamérica Comparte — SaaS Multipaís con IA</h3>
+                            <div class="item-meta">
+                                <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Tunja, Colombia</span>
+                            </div>
+                        </div>
+                        <div class="item-subtitle">Desarrollador Fullstack | <a href="http://www.latamcomparte.online" target="_blank" style="color:var(--accent-secondary); text-decoration:underline;">www.latamcomparte.online</a></div>
+                        <div class="item-content">
+                            <ul class="item-list">
+                                <li>Contribuí al desarrollo de esta plataforma SaaS administrativa multipaís para Latinoamérica, con roles RBAC, dashboard administrativo y aplicación móvil en Flutter.</li>
+                                <li>Diseñé e implementé la lógica del simulador de cadenas de Markov para la predicción de fallos y el flujo de estados del sistema.</li>
+                                <li>Construí el corpus para el chatbot <strong>RAG (Retrieval Augmented Generation)</strong> integrado con FastAPI y Python, para respuestas contextuales basadas en la información de la plataforma.</li>
+                                <li>Configuré el despliegue continuo (CI/CD) de la plataforma en Azure.</li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <!-- Proyecto 2 -->
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <h3 class="item-title">Hackathon FIS 2025 — Aplicación Móvil</h3>
+                            <div class="item-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Septiembre 2025</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Tunja, Colombia</span>
+                            </div>
+                        </div>
+                        <div class="item-subtitle">Desarrollador Full Stack / Líder de Equipo</div>
+                        <div class="item-content">
+                            <ul class="item-list">
+                                <li>Lideré y coordiné un equipo de 5 integrantes durante el desarrollo del reto, gestionando la comunicación directa con la empresa <em>Grúas y Equipos</em> para levantar requerimientos, alinear expectativas y garantizar la entrega oportuna.</li>
+                                <li>Diseñé y desarrollé <strong>“BomberApp”</strong>, una solución móvil de gestión de tareas gamificada, orientada a fortalecer la motivación y la trazabilidad de actividades de 120 operarios remotos.</li>
+                                <li>Implementé el frontend multiplataforma (iOS/Android) con <strong>React Native y Expo Router</strong>.</li>
+                                <li>Desarrollé el backend con <strong>NestJS</strong> bajo arquitectura orientada a servicios y metodología ágil SCRUM, incluyendo el diseño e implementación de la base de datos en MySQL.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Investigación -->
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <h3 class="item-title">Investigación Aplicada: Gamificación en la Enseñanza</h3>
+                            <div class="item-meta">
+                                <span><i class="fa-regular fa-calendar"></i> 2023 – 2024</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Tunja, Colombia</span>
+                            </div>
+                        </div>
+                        <div class="item-subtitle">Ponente / Autor de investigación</div>
+                        <div class="item-content">
+                            <ul class="item-list">
+                                <li>Presenté la ponencia <em>“Minecraft as an Educational Tool to Simulate and Address Challenges in the System Engineering Field within an EFL Classroom”</em> en el Congreso de Lenguas de la Facultad de Licenciatura en Español y Lenguas Extranjeras Inglés y Francés, USTA Tunja (2023).</li>
+                                <li>Presenté el póster <em>“Utilizando pseudocódigo y el aprendizaje de resolución de problemas en Minecraft For Education en una clase de ESP (inglés con fines específicos) de ingeniería de sistemas”</em> en la I Semana de la Investigación, Innovación y Proyección Social, USTA Tunja (2024).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Educación -->
+            <section class="glass-card reveal">
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Educación</h2>
+                
+                <div class="timeline">
+                    <!-- Educación 1 -->
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <h3 class="item-title">Universidad Santo Tomás, Seccional Tunja</h3>
+                            <div class="item-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Inicio: 2023</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Tunja, Colombia</span>
+                            </div>
+                        </div>
+                        <div class="item-subtitle">Ingeniería de Sistemas — En curso (octavo semestre)</div>
+                        <div class="item-content">
+                            <ul class="item-list">
+                                <li><strong>Mejor promedio académico</strong> de la seccional en los semestres 2023-2 y 2024-2.</li>
+                                <li>Reconocimiento <strong>“Cumbre Excelencia Académica 2025”</strong>, otorgado al mejor promedio académico de la facultad de Ingeniería de Sistemas en dicho año.</li>
+                                <li>Reconocimiento <strong>“Raza de Héroes de Excelencia Académica 2024”</strong>, otorgado al mejor promedio académico de la facultad de Ingeniería de Sistemas en dicho año.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Educación 2 -->
+                    <div class="timeline-item">
+                        <div class="item-header">
+                            <h3 class="item-title">Country Bilingual School</h3>
+                            <div class="item-meta">
+                                <span><i class="fa-regular fa-calendar"></i> Graduado en 2022</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Cómbita, Boyacá</span>
+                            </div>
+                        </div>
+                        <div class="item-subtitle">Bachillerato Académico</div>
+                        <div class="item-content">
+                            <ul class="item-list">
+                                <li>Graduado con 4 menciones de honor: Mejor ICFES, Mejor Trabajo de Grado, Mejor Examen IELTS y Mejor Bachiller Académico.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bloque de 2 columnas para Certificaciones y Más Habilidades -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
+                
+                <section class="glass-card reveal">
+                    <h2 class="section-title" style="font-size: 1.5rem;"><i class="fa-solid fa-certificate"></i> Certificaciones</h2>
+                    <ul class="item-list" style="margin-top: 1.5rem;">
+                        <li style="margin-bottom: 1rem;">
+                            <strong style="font-size: 1.05rem;">Análisis Exploratorio de Datos en Python</strong><br>
+                            SENA, Regional Cesar (2026)<br>
+                            <span style="color: var(--text-secondary); font-size: 0.9em;"><i class="fa-regular fa-clock"></i> Intensidad: 48 horas | Evaluación: Apto (4.5)</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="glass-card reveal" style="transition-delay: 0.1s;">
+                    <h2 class="section-title" style="font-size: 1.5rem;"><i class="fa-solid fa-language"></i> Idiomas</h2>
+                    <ul class="item-list" style="margin-top: 1.5rem;">
+                        <li style="margin-bottom: 1rem;">
+                            <strong style="font-size: 1.05rem;">Español</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9em;">Nativo</span>
+                        </li>
+                        <li>
+                            <strong style="font-size: 1.05rem;">Inglés</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9em;">Nivel B1 (6 niveles de inglés cursados en la Universidad Santo Tomás)</span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            
+            <section class="glass-card reveal">
+                 <h2 class="section-title" style="font-size: 1.5rem;"><i class="fa-solid fa-layer-group"></i> Metodologías y Conceptos</h2>
+                 <div class="skills-grid" style="margin-top: 1.5rem;">
+                    <span class="skill-tag"><i class="fa-solid fa-shield-halved"></i> OWASP</span>
+                    <span class="skill-tag"><i class="fa-solid fa-rotate"></i> SCRUM / Agile</span>
+                    <span class="skill-tag"><i class="fa-solid fa-users"></i> Liderazgo de Equipos</span>
+                    <span class="skill-tag"><i class="fa-solid fa-diagram-project"></i> Arquitectura Orientada a Servicios</span>
+                    <span class="skill-tag"><i class="fa-solid fa-gamepad"></i> Gamificación Educativa</span>
+                    <span class="skill-tag"><i class="fa-solid fa-server"></i> CI/CD Pipeline</span>
+                 </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Script de intersección para animaciones al hacer scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Descomentar la siguiente línea si deseas que la animación ocurra solo la primera vez que se hace scroll
+                        // observer.unobserve(entry.target);
+                    } else {
+                        // Comentar esta línea si deseas que los elementos no se oculten al salir de pantalla
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, { 
+                threshold: 0.1, 
+                rootMargin: "0px 0px -50px 0px" 
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
 </body>
 </html>
